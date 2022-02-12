@@ -4,8 +4,9 @@ import {capitalizeFirstLetter} from '../../utils/helpers';
 
 
 function Gallery({ currentCategory }) {
-    console.log(currentCategory)
+    
     const { name, description } = currentCategory;
+    console.log(currentCategory);
     return(
         <section>
             <h1 data-testid="h1tag">{capitalizeFirstLetter(name)}</h1>
