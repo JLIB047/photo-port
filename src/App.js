@@ -15,6 +15,7 @@ function App() {
     { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' },
   ]);
 
+  const [contactSelected, setContactSelected] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
   return (
@@ -23,17 +24,21 @@ function App() {
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        constactSelected={contactSelected}
+        setContactSelected={setContactSelected}
       ></Nav>
 
     
       <main>
-        <div>
+        {!contactSelected ? (
+          <>
+            <Gallery currentCategory={currentCategory}/>
+            <About></About>
+          </>
+        ) : (
           <ContactForm></ContactForm>
-          <Gallery
-           currentCategory={currentCategory}
-          />
-          <About></About>
-        </div>
+        )}
+        
       </main>
     </div>
   );
